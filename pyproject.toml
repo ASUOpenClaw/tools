@@ -1,0 +1,17 @@
+[project]
+name = "openclaw-tools"
+version = "0.1.0"
+description = "GoClaw HTTP tool endpoints for openclaw"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.111",
+    "uvicorn[standard]>=0.29",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.3",
+    "sqlalchemy[asyncio]>=2.0",
+    "asyncpg>=0.29",
+    "qdrant-client[fastembed]>=1.9",
+    "aioboto3>=13.0",
+    "nats-py>=2.3",
+    "redis[asyncio]>=5.0",
+]

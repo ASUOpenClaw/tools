@@ -1,0 +1,19 @@
+services:
+    tools:
+        build:
+            context: ..
+            dockerfile: tools/Dockerfile
+        container_name: tools-1
+        restart: unless-stopped
+        ports:
+            - "${TOOLS_PORT:-8003}:8003"
+        env_file: .env
+        environment:
+            DATABASE_URL: "postgresql+asyncpg://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-openclaw}"
+            QDRANT_URL: "http://qdrant:6333"
+        networks:
+            - openclaw-net
+
+networks:
+    openclaw-net:
+        external: true
